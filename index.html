@@ -155,7 +155,6 @@ function press(value) {
   if (value === '+' && expression == "") return;
 
   if (value === '.' && expression == "") expression = "0.";
-  else if (value === '.' && expression.includes('.')) return;
 
   if (value === '.' && expression.endsWith("*")) return;
   if (value === '.' && expression.endsWith("+")) return;
