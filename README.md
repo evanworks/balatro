@@ -13,6 +13,9 @@ Use this all you want. I'm sure you won't have as much need for it as I do.
 ## Changelog
 
 **Feb 16, 2025:** 
+Fixed multiple decimals not working
+
+**Feb 16, 2025:** 
 Fixed zeroes inputting ones
 
 **Feb 16, 2025:** 
