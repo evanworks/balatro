@@ -8,3 +8,11 @@ There are two values in a Balatro score: Chips and Mult. These both need to be c
 
 
 Use this all you want. I'm sure you won't have as much need for it as I do.
+<hr/>
+## Changelog
+
+**Feb 16, 2025:** 
+Fixed zeroes inputting ones
+
+**Feb 16, 2025:** 
+Initial Release
