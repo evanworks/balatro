@@ -73,12 +73,12 @@ body {
 .calculator {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 60px);
+  grid-template-columns: repeat(4, 60px);
   gap: 10px;
   background-color: #0003;
   padding: 20px;
   border-radius: 0.5em;
-  width: 200px;
+  width: 270px;
 }
 button {
   color: white;
@@ -108,11 +108,13 @@ button:active {
   font-size: 0.8em;
   height: 30px; 
   background: transparent;
+  margin-left: 40px;
 }
 #whatIsThis:hover {
   color: white;
     border: none;
 }
+/*
 @media (orientation: portrait) {
   .calculator {
     grid-template-columns: repeat(3, 240px);
@@ -135,7 +137,7 @@ button:active {
     height: 120px;
     width: 120px;
   }
-}
+}*/
 </style>
 <body>
 <div id="bestPlayScore"><span class="chipIcon"></span><span id="finalScore">0</span></div>
@@ -144,6 +146,7 @@ button:active {
           </div>
     <div style="display: flex; justify-content: center;">
       <div class="calculator">
+          <button onclick="clearCalc()">C</button>
           <button onclick="press(1)">1</button>
           <button onclick="press(2)">2</button>
           <button onclick="press(3)">3</button>
@@ -155,14 +158,14 @@ button:active {
           <button onclick="press(9)">9</button>
           <button onclick="press(0)">0</button>
           <button onclick="press('.')">.</button>
-          <button onclick="clearCalc()">C</button>
           <button onclick="press('+')">+</button>
           <button onclick="press('*')">*</button>
+          <button onclick="press('^')">^</button>
           <button onclick="calculate()">=</button>
           
-          <button class="left-right-btn" onclick="left()"> < </button>
-          <button style="color: #009dff" id="whatIsThis">Chips</button>
-          <button class="left-right-btn" style="margin-left: 30px;"onclick="right()"> > </button>
+          <button class="left-right-btn" onclick="toggle()"> < </button>
+          <button style="color: #009dff" id="whatIsThis">Chips</button><button style="color: #00ff00; opacity: 0%; height: 0px;" ></button>
+          <button class="left-right-btn" style="margin-left: 30px;"onclick="toggle()"> > </button>
       </div>
     </div>
 <div style="position: fixed; bottom: 3px; font-size: 0.5em;"><a style="color: white; text-decoration: none;" href="playbalatro.com">Balatro</a> Dual Calculator @evanworks</div>
@@ -208,17 +211,18 @@ function clearCalc() {
   document.getElementById("scoreChips").innerHTML = "0";
   document.getElementById("finalScore").innerHTML = "0";
 }
-function left() {
-  expression = chipExpr;
-  screen = document.getElementById("scoreChips")
-  document.getElementById("whatIsThis").innerHTML = "Chips";
-  document.getElementById("whatIsThis").style.color = "#009dff";
-}
-function right() {
-  expression = multExpr;
-  screen = document.getElementById("scoreMult")
-  document.getElementById("whatIsThis").innerHTML = "Mult";
-  document.getElementById("whatIsThis").style.color = "#ff4d40";
+function toggle() {
+  if (screen == document.getElementById("scoreChips")) {
+    expression = multExpr;
+    screen = document.getElementById("scoreMult")
+    document.getElementById("whatIsThis").innerHTML = "Mult";
+    document.getElementById("whatIsThis").style.color = "#ff4d40";
+  } else {
+    expression = chipExpr;
+    screen = document.getElementById("scoreChips")
+    document.getElementById("whatIsThis").innerHTML = "Chips";
+    document.getElementById("whatIsThis").style.color = "#009dff";
+  }
 }
   </script>
 </html>
