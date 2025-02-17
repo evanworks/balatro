@@ -9,6 +9,7 @@ body {
 	font-family: 'm6x11Plus';
     font-size: 2em;
     color: white;
+  user-select: none;
 }
 @font-face {
   font-family: 'm6x11Plus';
@@ -23,6 +24,8 @@ body {
   height: 30px;
   background: url('https://efhiii.github.io/balatro-calculator/assets/chips.png') 0 0;
   image-rendering: pixelated;
+  background-position-x: 0px;
+  transition: 1s;
 }
 .levelStat {
   position: sticky;
@@ -114,6 +117,11 @@ button:active {
   color: white;
     border: none;
 }
+@media (orientation: portrait) {
+  #whatIsThis {
+    margin-left: 0px;
+  }
+}
 /*
 @media (orientation: portrait) {
   .calculator {
@@ -147,28 +155,35 @@ button:active {
     <div style="display: flex; justify-content: center;">
       <div class="calculator">
           <button onclick="clearCalc()">C</button>
+          <button onclick="press('^')">^</button>
+          <button onclick="press('.')">.</button>
+          <button onclick="press('+')">+</button>
           <button onclick="press(1)">1</button>
           <button onclick="press(2)">2</button>
           <button onclick="press(3)">3</button>
+          <button onclick="press('*')">*</button>
           <button onclick="press(4)">4</button>
           <button onclick="press(5)">5</button>
           <button onclick="press(6)">6</button>
+          <button onclick="calculate()">=</button>
           <button onclick="press(7)">7</button>
           <button onclick="press(8)">8</button>
           <button onclick="press(9)">9</button>
+         
           <button onclick="press(0)">0</button>
-          <button onclick="press('.')">.</button>
-          <button onclick="press('+')">+</button>
-          <button onclick="press('*')">*</button>
-          <button onclick="press('^')">^</button>
-          <button onclick="calculate()">=</button>
+          
+          
+          
+          
+          
           
           <button class="left-right-btn" onclick="toggle()"> < </button>
           <button style="color: #009dff" id="whatIsThis">Chips</button><button style="color: #00ff00; opacity: 0%; height: 0px;" ></button>
           <button class="left-right-btn" style="margin-left: 30px;"onclick="toggle()"> > </button>
       </div>
+      <div style="position: fixed; top: 500px;font-size: 0.5em; color: #0003;"><a style="color: #0003; text-decoration: none;" href="https://playbalatro.com">Balatro</a> Dual Calculator @evanworks</div>
     </div>
-<div style="position: fixed; bottom: 3px; font-size: 0.5em;"><a style="color: white; text-decoration: none;" href="playbalatro.com">Balatro</a> Dual Calculator @evanworks</div>
+
 </body>
   <script>
 let screen = document.getElementById("scoreChips");
@@ -191,6 +206,7 @@ function press(value) {
   screen.textContent = expression;
 }
 function calculate() {
+  expression = expression.replace(/\^/g, '**');
   screen.textContent = eval(expression);
   expression = screen.textContent;
   if (screen == document.getElementById("scoreChips")) {
@@ -222,6 +238,24 @@ function toggle() {
     screen = document.getElementById("scoreChips")
     document.getElementById("whatIsThis").innerHTML = "Chips";
     document.getElementById("whatIsThis").style.color = "#009dff";
+  }
+}
+let chip = document.getElementsByClassName("chipIcon")[0];
+chip.onclick = function() {
+  x = chip.style.backgroundPositionX.replace("px", "");
+  if (x != "") {
+    x = parseInt(x);
+  }
+  newX = x + 29;
+  chip.style.backgroundPositionX = newX + "px";
+  if (x == 145) {
+    if (chip.style.backgroundPositionY == 0 || chip.style.backgroundPositionY == "") {
+      chip.style.backgroundPositionY = "-29px";
+      chip.style.backgroundPositionX = "0px";
+    } else {
+      chip.style.backgroundPositionY = "0px";
+      chip.style.backgroundPositionX = "0px";
+    }
   }
 }
   </script>
