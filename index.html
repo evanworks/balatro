@@ -70,50 +70,63 @@ body {
   padding: 0.125em;
   text-shadow: 0.07em 0.09em #0005;
 }
-        .calculator {
-        	
-        	margin-top: 20px;
-            display: grid;
-            grid-template-columns: repeat(3, 60px);
-            gap: 10px;
-            background-color: #0003;
-            padding: 20px;
-            border-radius: 0.5em;
-            width: 200px;
-        }
-        button {
-        	color: white;
-        	font-family: 'm6x11Plus';
-            width: 60px;
-            height: 60px;
-            font-size: 1em;
-            cursor: pointer;
-            border: none;
-            background: #5f7377;
-            border-radius: 0.2em;
-            transition: 0.1s;
-        }
-        button:hover {
-            border: 0.1em solid white;
-        }
-        button::active {
-            border: 0.1em solid white;
-        }
-        .left-right-btn {
-        	font-size: 0.5em;
-            width: 30px;
-            height: 30px;
-        }
-        #whatIsThis {
-        	cursor: auto;
-        	font-size: 0.8em;
-            height: 30px; 
-            background: transparent;
-        }
-        #whatIsThis:hover {
-        	color: white;
-            border: none;
-        }
+.calculator {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  gap: 10px;
+  background-color: #0003;
+  padding: 20px;
+  border-radius: 0.5em;
+  width: 200px;
+}
+button {
+  color: white;
+  font-family: 'm6x11Plus';
+  width: 60px;
+  height: 60px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  background: #5f7377;
+  border-radius: 0.2em;
+  transition: 0.1s;
+}
+button:hover {
+  border: 0.1em solid white;
+}
+button:active {
+  border: 0.1em solid white;
+}
+.left-right-btn {
+  font-size: 0.5em;
+    width: 30px;
+    height: 30px;
+}
+#whatIsThis {
+  cursor: auto;
+  font-size: 0.8em;
+    height: 30px; 
+    background: transparent;
+}
+#whatIsThis:hover {
+  color: white;
+    border: none;
+}
+@media (orientation: portrait) {
+  .calculator {
+    grid-template-columns: repeat(3, 120px);
+    gap: 20px;
+    width: 400px;
+  }
+  button {
+    width: 120px;
+    height: 120px;
+  }
+  body {
+    font-size: 4em;
+  }
+}
 </style>
 <body>
 <div id="bestPlayScore"><span class="chipIcon"></span><span id="finalScore">0</span></div>
@@ -143,7 +156,7 @@ body {
           <button class="left-right-btn" style="margin-left: 30px;"onclick="right()"> > </button>
       </div>
     </div>
-<div style="position: fixed; bottom: 3px; font-size: 0.5em;"><a style="color: white; text-decoration: none;" href="playbalatro.com">Balatro</a> Tabletop Calculator @evanworks</div>
+<div style="position: fixed; bottom: 3px; font-size: 0.5em;"><a style="color: white; text-decoration: none;" href="playbalatro.com">Balatro</a> Dual Calculator @evanworks</div>
 </body>
   <script>
 let screen = document.getElementById("scoreChips");
