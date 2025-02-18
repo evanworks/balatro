@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Balatro Mod Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+@font-face {
+  font-family: 'm6x11plus';
+  src: url('m6x11plus.ttf') format('truetype');
+}
+body {
+  font-family: sans-serif;
+}
+.dir-stuff:hover {
+  color: grey;
+  text-decoration: underline;
+  cursor: pointer;
+}
+img {
+  border: 1px solid black;
+}
+#fileSearch {
+  margin-left: -3px;
+  display: none;
+}
+#fileSearch:hover {
+  display: inline;
+}
+#fileSearch:focus {
+  display: inline;
+}
+#fileSearch:hover~#api-key {
+  display: none;
+}
+#fileSearch:focus~#api-key {
+  display: none;
+}
+#searchinfiles:hover~#fileSearch{
+    display: inline;
+}
+#searchinfiles:hover~#api-key{
+    display: none;
+}
+    </style>
+  </head>
+  <body>
+    <input id="readme-input" placeholder="username/repo-name">
+    
+    <button onclick="displayReadme(document.getElementById('readme-input').value)" style="margin-bottom: 15px;">
+      <i class="fa-brands fa-readme"></i> Display README
+    </button>
+
+    <button onclick="getRepoFileTree(document.getElementById('readme-input').value)" style="margin-bottom: 15px;">
+      <i class="fa-solid fa-folder-tree"></i> Display File Tree
+    </button>
+
+    <button id="searchinfiles" onclick="searchInFiles(document.getElementById('readme-input').value, document.getElementById('fileSearch').value)" style="margin-bottom: 15px;">
+      <i class="fa-solid fa-magnifying-glass"></i> Search In Files
+    </button>
+    <input id="fileSearch" placeholder="Keyword...">
+
+    <button onclick="getAllImages(document.getElementById('readme-input').value, '')" style="margin-bottom: 15px;">
+      <i class="fa-solid fa-image"></i> View All Images
+    </button>
+
+    <button onclick="checkRateLimit()" style="margin-bottom: 15px;">
+      <i class="fa-solid fa-key"></i> Check Rate Limit
+    </button>
+    <button onclick="showHelp()">
+      <i class="fa-solid fa-circle-info"></i> Help
+    </button>
+
+    <input id="api-key" oninput='document.getElementById("classiccheckbutton").style.opacity = 1;' onchange='document.getElementById("classiccheckbutton").style.opacity = 1;' placeholder="Insert API key...">
+    <button onclick="changeKey()" id="classiccheckbutton">
+      <i class="fa-solid fa-check"></i>
+    </button>
+
+    <div id="readme-container" style="border: 1px solid #ddd; padding: 10px;"></div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.6/marked.min.js"></script>
+  <script src="ohboytheasync.js"></script>
+</html>
