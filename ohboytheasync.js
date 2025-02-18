@@ -2,7 +2,7 @@
 
 let GITHUB_TOKEN = '';
 
-let token = true;
+let token = false;
 
 function changeKey() {
   document.getElementById("classiccheckbutton").style.opacity = "0";
