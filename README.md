@@ -1,4 +1,6 @@
-# Balatro Dual Calculator
+# Evan's balatro Stuff
+
+# Dual Calculator
 This is a dual calculator used to compute Balatro scores. I've made it to easily compute scores for the board game version I recently made.
 
 ## So what do I mean by "Dual Calculator?"
